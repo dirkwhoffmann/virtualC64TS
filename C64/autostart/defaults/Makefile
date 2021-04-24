@@ -30,8 +30,9 @@ clean:
 
 %.tiff:
 	@echo "Creating missing reference image $@"
-	@cp $(basename $@).prg /tmp/$(basename $(@F)).prg
+	cp $(basename $@).prg /tmp/$(basename $(@F)).prg
 	$(VIRTUALC64) $(basename $@).ini &> /dev/null
 	@cp /tmp/$(basename $(@F)).tiff $(basename $@).tiff
 	@rm /tmp/$(basename $(@F)).prg
 	@rm /tmp/$(basename $(@F)).tiff
+	
