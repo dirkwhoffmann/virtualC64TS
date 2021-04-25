@@ -1,4 +1,4 @@
-SUBDIRS = autostart bankio
+SUBDIRS = $(wildcard */)
 MYMAKE = $(MAKE) --no-print-directory
 
 .PHONY: all subdirs clean
