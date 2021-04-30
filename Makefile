@@ -1,7 +1,7 @@
 # Path to the vAmiga executable
 VIRTUALC64 = /tmp/VirtualC64/VirtualC64.app/Contents/MacOS/VirtualC64
 
-SUBDIRS = C64
+SUBDIRS = $(wildcard */)
 MYMAKE = $(MAKE) --no-print-directory
 
 export VIRTUALC64
