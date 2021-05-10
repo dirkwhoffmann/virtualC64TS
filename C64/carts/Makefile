@@ -30,6 +30,11 @@ clean:
 		$(MAKE) -C $$dir clean; \
 	done
 
+# Failing tests
+romram.log:
+	@echo "$(basename $@): FAIL"
+	@echo "$(basename $@): FAIL" > $@
+
 %.log: %.tiff
 	-@cp $(basename $@).crt /tmp/$(basename $(@F)).crt &> /dev/null || true
 	@$(VIRTUALC64) $(basename $@).ini &> /dev/null
