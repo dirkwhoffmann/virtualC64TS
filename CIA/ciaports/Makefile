@@ -30,11 +30,6 @@ clean:
 		$(MAKE) -C $$dir clean; \
 	done
 
-# The following tests are failing yet
-ciaports_space.log ciaports_shiftlock.log ciaports_lshift.log ciaports_rshift.log:
-	@echo "$(basename $@): FAIL"
-	@echo "$(basename $@): FAIL" > $@
-
 %.log: %.tiff
 	-@cp $(basename $@).prg /tmp/$(basename $(@F)).prg &> /dev/null || true
 	@$(VIRTUALC64) $(basename $@).ini &> /dev/null
