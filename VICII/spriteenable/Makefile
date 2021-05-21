@@ -9,13 +9,10 @@ LOG = $(INI:.ini=.log)
 TIFF = $(INI:.ini=.tiff)
 MYMAKE = $(MAKE) --no-print-directory
 
-.PHONY: all prepare clean
+.PHONY: all clean
 
-all: prepare $(LOG) $(TIFF) subdirs
+all: $(LOG) $(TIFF) subdirs
 	@echo > /dev/null
-
-prepare:
-	@echo "Running regression tests..."
 
 subdirs:
 	@for dir in $(SUBDIRS); do \

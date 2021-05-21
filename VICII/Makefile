@@ -5,13 +5,10 @@ MYMAKE = $(MAKE) --no-print-directory
 
 all: subdirs
 	@echo > /dev/null
-	
-prebuild:
-	@echo "Entering ${CURDIR}"
-		
+			
 subdirs:
 	@for dir in $(SUBDIRS); do \
-		echo "Entering ${CURDIR}/$$dir"; \
+		echo "${CURDIR}/$$dir"; \
 		$(MAKE) -C $$dir; \
 	done
 

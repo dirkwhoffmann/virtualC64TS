@@ -9,13 +9,10 @@ LOG = $(INI:.ini=.log)
 TIFF = $(INI:.ini=.tiff)
 MYMAKE = $(MAKE) --no-print-directory
 
-.PHONY: all prepare clean
+.PHONY: all clean
 
-all: prepare $(LOG) $(TIFF) subdirs
+all: $(LOG) $(TIFF) subdirs
 	@echo > /dev/null
-
-prepare:
-	@echo "Running regression tests..."
 
 subdirs:
 	@for dir in $(SUBDIRS); do \
@@ -29,11 +26,6 @@ clean:
 		echo "Cleaning up ${CURDIR}/$$dir"; \
 		$(MAKE) -C $$dir clean; \
 	done
-
-# Failing tests
-sbsprf24-163.log:
-	@echo "$(basename $@): FAIL"
-	@echo "$(basename $@): FAIL" > $@
 
 %.log: %.tiff
 	-@cp $(basename $@).prg /tmp/$(basename $(@F)).prg &> /dev/null || true
